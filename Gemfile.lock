@@ -3,6 +3,7 @@ GEM
   specs:
     diff-lcs (1.1.2)
     haml (3.0.25)
+    json (1.5.1)
     rack (1.2.2)
     rack-test (0.5.7)
       rack (>= 1.0)
@@ -26,6 +27,7 @@ PLATFORMS
 
 DEPENDENCIES
   haml
+  json
   rack-test
   rspec
   shotgun

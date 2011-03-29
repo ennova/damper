@@ -2,6 +2,7 @@ source :gemcutter
 
 gem 'sinatra'
 gem 'haml'
+gem 'json'
 
 group :development do
   gem 'shotgun'
