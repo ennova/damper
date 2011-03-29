@@ -1,3 +1,5 @@
+require 'codebase_parser'
+
 class Damper < Sinatra::Application
   get '/' do
     haml :index
