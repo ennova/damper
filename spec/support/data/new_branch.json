@@ -1,0 +1,26 @@
+{
+  "after": "6dddaab454dab22e1df5544940e577e3481dd666",
+  "before": "0000000000000000000000000000000000000000",
+  "commits": [],
+  "ref": "refs\/heads\/bangers",
+  "repository": {
+    "clone_url": "git@codebasehq.com:example\/example\/test.git",
+    "name": "Test",
+    "project": {
+      "account": {
+        "email": "joe.bloggs@example.com",
+        "name": "Example Pty. Ltd.",
+        "url": "https:\/\/example.codebasehq.com"
+      },
+      "name": "Example",
+      "status": "active",
+      "url": "https:\/\/example.codebasehq.com\/example"
+    },
+    "url": "https:\/\/example.codebasehq.com\/example\/test"
+  },
+  "user": {
+    "email": "joe.bloggs@example.com",
+    "name": "Joe Bloggs",
+    "username": "joe.bloggs"
+  }
+}

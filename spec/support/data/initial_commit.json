@@ -1,0 +1,42 @@
+{
+  "after": "744af2102c59736a919d66901fe143ebe8424cdb",
+  "before": "0000000000000000000000000000000000000000",
+  "commits": [
+    {
+      "added": [
+        "foo"
+      ],
+      "author": {
+        "email": "joe.bloggs@example.com",
+        "name": "Joe Bloggs"
+      },
+      "id": "744af2102c59736a919d66901fe143ebe8424cdb",
+      "message": "Initial commit.",
+      "modified": [],
+      "removed": [],
+      "timestamp": "Tue, 29 Mar 2011 01:05:55 +0000",
+      "url": "https:\/\/example.codebasehq.com\/example\/test\/commit\/744af2102c59736a919d66901fe143ebe8424cdb"
+    }
+  ],
+  "ref": "refs\/heads\/master",
+  "repository": {
+    "clone_url": "git@codebasehq.com:example\/example\/test.git",
+    "name": "Test",
+    "project": {
+      "account": {
+        "email": "joe.bloggs@example.com",
+        "name": "Example Pty. Ltd.",
+        "url": "https:\/\/example.codebasehq.com"
+      },
+      "name": "Example",
+      "status": "active",
+      "url": "https:\/\/example.codebasehq.com\/example"
+    },
+    "url": "https:\/\/example.codebasehq.com\/example\/test"
+  },
+  "user": {
+    "email": "joe.bloggs@example.com",
+    "name": "Joe Bloggs",
+    "username": "joe.bloggs"
+  }
+}
