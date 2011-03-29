@@ -1,7 +1,4 @@
 $: << File.dirname(__FILE__)
-require 'rubygems'
-require 'bundler'
-Bundler.require
-
+require 'environment'
 require 'damper'
 run Damper

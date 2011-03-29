@@ -1,8 +1,7 @@
-require File.join(File.dirname(__FILE__), '..', 'damper.rb')
+$: << File.join(File.dirname(__FILE__), '..')
 
-require 'rubygems'
-require 'sinatra'
+require 'environment'
+require 'damper'
 require 'rack/test'
-require 'rspec'
 
 set :environment, :test
