@@ -4,11 +4,11 @@ class PayloadBase
   end
 
   def method_missing(method, *arguments, &block)
-    get(method.to_s) || super
+    get(method) || super
   end
 
   def respond_to?(method, include_private = false)
-    super || !!get(method.to_s)
+    super || !!get(method)
   end
 
   def inspect
@@ -18,7 +18,7 @@ class PayloadBase
   private
 
   def get name
-    name.split('_').inject(@data) { |item, key| item.respond_to?(:[]) && item[key] }
+    name.to_s.split('_').inject(@data) { |item, key| item.respond_to?(:[]) && item[key] }
   end
 end
 
