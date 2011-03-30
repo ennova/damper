@@ -2,8 +2,14 @@ require 'payload'
 
 class CodebaseParser
   def self.parse_notification(payload)
-    payload.commits.map do |commit|
-      "[#{payload.repository_branch}] #{commit.message} - #{commit.author_name} (#{commit.url})"
+    messages = payload.commits.map do |commit|
+      message = "[#{payload.repository_branch}] #{commit.message} - #{commit.author_name}"
+      message << " (#{commit.url})" if payload.commits_count == 1
+      message
     end
+    if payload.commits_count > 1
+      messages << "[#{payload.repository_branch}] commits #{payload.before[0..6]}...#{payload.after[0..6]}: #{payload.url}"
+    end
+    messages
   end
 end

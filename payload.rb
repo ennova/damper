@@ -35,6 +35,14 @@ class Payload < PayloadBase
     commits_count == 1 ? "a commit" : "#{commits_count} commits"
   end
 
+  def url
+    if commits.size == 1
+      commits.first.url
+    else
+      "#{repository_url}/compare/#{get :before}..#{get :after}"
+    end
+  end
+
   def repository_branch
     %Q[#{repository_name}/#{branch_name}]
   end
