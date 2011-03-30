@@ -24,7 +24,7 @@ class Payload
   end
 
   def branch_name
-    ref.match(/refs\/heads\/(.*)/)[1]
+    ref[%r{^refs/heads/(.*)$}, 1]
   end
 
   private
