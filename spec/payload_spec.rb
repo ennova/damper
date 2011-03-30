@@ -42,4 +42,8 @@ describe Payload do
     @payload.inspect.should match /\A\{/
     @payload.inspect.should match /\}\z/
   end
+
+  it "should return commit objects" do
+    @payload.commits.first.message.should == 'Initial commit.'
+  end
 end

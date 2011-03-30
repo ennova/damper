@@ -23,6 +23,10 @@ class PayloadBase
 end
 
 class Payload < PayloadBase
+  def commits
+    @commits ||= super.map { |data| PayloadBase.new(data) }
+  end
+
   def commits_count
     commits.size
   end
