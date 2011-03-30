@@ -44,7 +44,11 @@ class Payload < PayloadBase
   end
 
   def repository_branch
-    %Q[#{repository_name}/#{branch_name}]
+    "#{repository_path.split('/').last}/#{branch_name}"
+  end
+
+  def repository_path
+    repository['clone_url'][/:(.+)\.git$/, 1]
   end
 
   def branch_name
