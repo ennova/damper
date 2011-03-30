@@ -2,8 +2,8 @@ require 'payload'
 
 class CodebaseParser
   def self.parse_notification(payload)
-    [ %Q[#{payload.user_name} pushed #{payload.commits_count_s} to #{payload.repository_branch}.] ]
+    payload.commits.map do |commit|
+      "[#{payload.repository_branch}] #{commit.message} - #{commit.author_name} (#{commit.url})"
+    end
   end
-
-  # %Q[#{user.name} pushed #{commits.count} commits to #{repository.name} ]
 end
