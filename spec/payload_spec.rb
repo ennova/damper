@@ -37,4 +37,9 @@ describe Payload do
   it "should return the affected branch name" do
     @payload.branch_name.should == 'master'
   end
+
+  it "should delegate inspect to data hash" do
+    @payload.inspect.should match /\A\{/
+    @payload.inspect.should match /\}\z/
+  end
 end

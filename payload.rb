@@ -11,6 +11,10 @@ class Payload
     super || !!get(method.to_s)
   end
 
+  def inspect
+    @data.inspect
+  end
+
   def commits_count_s
     commits_count == 1 ? "a commit" : "#{commits_count} commits"
   end
