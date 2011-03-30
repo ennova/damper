@@ -33,6 +33,17 @@ class Damper < Sinatra::Application
 
   post '/' do
     protected!
+    begin
+      payload = Payload.new JSON.parse(params[:payload])
+      messages = CodebaseParser.parse_notification payload
+      messages.each do |message|
+        campfire_room.speak message
+      end
+    rescue Exception => e
+      campfire_room.speak "Error processing the payload: #{e.message}"
+      campfire_room.paste params[:payload]
+      raise
+    end
   end
 
   get '/:stylesheet.css' do |stylesheet|

@@ -35,10 +35,31 @@ describe Damper do
       last_response.status.should == 401
     end
 
-    it 'should accept valid credentials' do
-      authorize 'alibaba', 'opensesame'
-      post '/'
-      last_response.status.should_not == 401
+    context "with valid credentials" do
+      before do
+        authorize 'alibaba', 'opensesame'
+      end
+
+      context "with mock room" do
+        before do
+          campfire = mock 'campfire'
+          Tinder::Campfire.should_receive(:new).once.and_return(campfire)
+          @room = mock 'room'
+          campfire.should_receive(:find_room_by_name).once.and_return(@room)
+        end
+
+        it 'should speak once for single commit' do
+          @room.should_receive(:speak).once
+          post '/', :payload => payload_data('initial_commit')
+          last_response.status.should == 200
+        end
+
+        it 'should speak three times for two commits' do
+          @room.should_receive(:speak).exactly(3).times
+          post '/', :payload => payload_data('multi_commit_modified')
+          last_response.status.should == 200
+        end
+      end
     end
   end
 end
