@@ -1,4 +1,4 @@
-class Payload
+class PayloadBase
   def initialize data
     @data = data
   end
@@ -15,12 +15,20 @@ class Payload
     @data.inspect
   end
 
-  def commits_count_s
-    commits_count == 1 ? "a commit" : "#{commits_count} commits"
+  private
+
+  def get name
+    name.split('_').inject(@data) { |item, key| item.respond_to?(:[]) && item[key] }
+  end
+end
+
+class Payload < PayloadBase
+  def commits_count
+    commits.size
   end
 
-  def commits_count
-    @commit_count ||= commits.size
+  def commits_count_s
+    commits_count == 1 ? "a commit" : "#{commits_count} commits"
   end
 
   def repository_branch
@@ -29,11 +37,5 @@ class Payload
 
   def branch_name
     ref[%r{^refs/heads/(.*)$}, 1]
-  end
-
-  private
-
-  def get name
-    name.split('_').inject(@data) { |item, key| item.respond_to?(:[]) && item[key] }
   end
 end
