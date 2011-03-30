@@ -66,4 +66,21 @@ describe CodebaseParser do
     end
 
   end
+
+  context 'with a multiline commit message' do
+    subject { messages_for 'multiline_message' }
+    its(:count) { should == 1}
+
+    it 'should terminate the first line with an ellipsis' do
+      subject.first.should include 'Fix line endings. ...'
+    end
+
+    it 'should not include additional lines in the commit message' do
+      subject.first.should_not include 'lorem ipsum'
+    end
+
+    it 'should not include any newlines in the output' do
+      subject.first.should_not include "\n"
+    end
+  end
 end
