@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Payload do
   before do
-    @payload = test_data('initial_commit')
+    @payload = payload 'initial_commit'
   end
 
   it "should respond to methods with instantiated keys and reject those without" do
