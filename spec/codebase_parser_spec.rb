@@ -83,4 +83,23 @@ describe CodebaseParser do
       subject.first.should_not include "\n"
     end
   end
+
+  context 'with eight commits' do
+    subject { messages_for 'eight_commits' }
+    its(:count) { should == 6 }
+
+    it 'should mention the project and branch in each line' do
+      subject.each { |line| line.should be_start_with '[test/master] ' }
+    end
+
+    it 'should list the first 5 commit messages' do
+      %w(First. Second. Third. Fourth. Fifth.).zip(subject).each do |message, line|
+        line.should include message
+      end
+    end
+
+    it "should note in the summary how many commits were omitted" do
+      subject.last.should include '(+3 more)'
+    end
+  end
 end
