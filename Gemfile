@@ -3,6 +3,7 @@ source :gemcutter
 gem 'sinatra'
 gem 'haml'
 gem 'json'
+gem 'tinder'
 
 group :development do
   gem 'shotgun'

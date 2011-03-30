@@ -1,4 +1,5 @@
 require 'codebase_parser'
+require 'tinder'
 
 class Damper < Sinatra::Application
   helpers do
@@ -12,6 +13,17 @@ class Damper < Sinatra::Application
     def authorized?
       @auth ||= Rack::Auth::Basic::Request.new(request.env)
       @auth.provided? && @auth.basic? && @auth.credentials == [ENV['AUTH_USERNAME'], ENV['AUTH_PASSWORD']]
+    end
+
+    def campfire
+      @campfire ||= Tinder::Campfire.new \
+        ENV['CAMPFIRE_SUBDOMAIN'],
+        :token => ENV['CAMPFIRE_TOKEN'],
+        :ssl => ENV['CAMPFIRE_SSL'] && %w(true 1).include?(ENV['CAMPFIRE_SSL'].downcase)
+    end
+
+    def campfire_room
+      @campfire_room ||= campfire.find_room_by_name ENV['CAMPFIRE_ROOM_NAME']
     end
   end
 
