@@ -102,4 +102,9 @@ describe CodebaseParser do
       subject.last.should include '(+3 more)'
     end
   end
+
+  context 'with a repository sync' do
+    subject { messages_for 'sync' }
+    its(:count) { should == 0 }
+  end
 end

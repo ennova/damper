@@ -4,6 +4,7 @@ class CodebaseParser
   @limit = 5
 
   def self.parse_notification(payload)
+    return [] if payload.repository_sync?
     messages = payload.commits.first(@limit).map do |commit|
       message = "[#{payload.repository_branch}] #{commit.message.sub(/[\r\n].*$/m, ' ...')} - #{commit.author_name}"
       message << " (#{commit.url})" if payload.commits_count == 1

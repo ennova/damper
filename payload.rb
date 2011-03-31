@@ -54,4 +54,8 @@ class Payload < PayloadBase
   def branch_name
     ref[%r{^refs/heads/(.*)$}, 1]
   end
+
+  def repository_sync?
+    get(:ref).nil?
+  end
 end

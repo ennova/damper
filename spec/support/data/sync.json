@@ -1,0 +1,38 @@
+{
+  "after": null,
+  "before": null,
+  "commits": [
+    {
+      "added": [],
+      "author": {
+        "email": "joe.bloggs@example.com",
+        "name": "Joe Bloggs"
+      },
+      "id": "28354599d6095850d7f9ada792eb303e7f4d6f2c",
+      "message": "Test sync from GitHub.",
+      "modified": [
+        "README"
+      ],
+      "removed": [],
+      "timestamp": "Thu, 31 Mar 2011 14:01:06 +0000",
+      "url": "https://example.codebasehq.com/example/test/commit/28354599d6095850d7f9ada792eb303e7f4d6f2c"
+    }
+  ],
+  "ref": null,
+  "repository": {
+    "clone_url": "git@codebasehq.com:example\/example\/test.git",
+    "name": "Test",
+    "project": {
+      "account": {
+        "email": "joe.bloggs@example.com",
+        "name": "Example Pty. Ltd.",
+        "url": "https:\/\/example.codebasehq.com"
+      },
+      "name": "Example",
+      "status": "active",
+      "url": "https://example.codebasehq.com/example"
+    },
+    "url": "https://example.codebasehq.com/example/test"
+  },
+  "user": null
+}
