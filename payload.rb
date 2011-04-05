@@ -44,7 +44,7 @@ class Payload < PayloadBase
   end
 
   def repository_branch
-    "#{repository_path.split('/').last}/#{branch_name}"
+    "#{repository_path.split('/')[1..-1].join('/')}/#{branch_name}"
   end
 
   def repository_path

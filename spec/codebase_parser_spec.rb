@@ -14,7 +14,7 @@ describe CodebaseParser do
     its(:count) { should == 1 }
 
     it 'should mention the project and branch' do
-      subject.first.should be_start_with '[test/master] '
+      subject.first.should be_start_with '[example/test/master] '
     end
 
     it 'should return the commit message' do
@@ -35,7 +35,7 @@ describe CodebaseParser do
     its(:count) { should == 3 } # 2 commits + 1 summary line
 
     it 'should mention the project and branch in each line' do
-      subject.each { |line| line.should be_start_with '[test/master] ' }
+      subject.each { |line| line.should be_start_with '[example/test/master] ' }
     end
 
     it 'should return the commit messages' do
@@ -89,7 +89,7 @@ describe CodebaseParser do
     its(:count) { should == 6 }
 
     it 'should mention the project and branch in each line' do
-      subject.each { |line| line.should be_start_with '[test/master] ' }
+      subject.each { |line| line.should be_start_with '[example/test/master] ' }
     end
 
     it 'should list the first 5 commit messages' do
